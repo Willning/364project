@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-from assignment import hextet_complement
+def hextet_complement(x):   
+    mask = 0xffff #8 bitmask        
+    out = bin(~x&mask)
+    return out
+
+    
 
 
 def internet_checksum(data, total=0x0):
@@ -11,22 +16,27 @@ def internet_checksum(data, total=0x0):
     
     '''
     
-    total = 0
+    sum = 0
     
-    for element in data:
-        total = total + element
-        if total>0xffff: #if overflow
-            total = total%0xffff
-                        
-   
-    checksum = hextet_complement(total)
+    count = 0
+    while count < len(data):
+        
+        tempA = bin(data[count])[2:]        
+        tempB =bin(data[count+1])[2:]        
+        while len(tempA)<8:
+            tempA ="0"+tempA
+        while len(tempB)<8:
+            tempB="0"+tempB
+            
+        number = tempB + tempA        
+               
+        new = int(number,2)        
+        sum +=new                
+        count+=2
+        
+    sum = sum %0xffff   
     
-    return checksum
-    
-
-
-data = [0x0001, 0xf203, 0xf4f5, 0xf6f7]
-
-
-print(internet_checksum(data))
-
+    int_checksum = int(hextet_complement(sum)[2:],2)
+         
+       
+    return int_checksum

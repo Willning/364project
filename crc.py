@@ -17,7 +17,7 @@ def crc(d, g):
     pick = 0
     
     while pick <= (len(dcopy) - len(g)):        
-        if dcopy[pick] == True: #if leading numeral is 1
+        if dcopy[pick] == True: #if leading numeral is 1 then xor
             xor_at(dcopy,g,pick)            
         pick+=1
        
