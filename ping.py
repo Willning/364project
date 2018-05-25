@@ -166,7 +166,7 @@ def verbose_ping(host, timeout=2.0, count=4, log=print):
     # TODO: Print suitable heading
     #       e.g. log("Contacting {} with {} bytes of data ".format(...))
     #
-    log("Contacting: " + host + " with " + str(count*12) + " bytes of data")
+    log("Contacting: " + host + " with 36 bytes of data")
     
 
     round_trip_times = []

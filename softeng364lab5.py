@@ -42,13 +42,13 @@ edge_label_positions = nx.draw_networkx_edge_labels(
         edge_labels=nx.get_edge_attributes(graph, name='cost'))
 nx.draw_networkx(graph, pos=node_positions)
 
-import assignment as ass
+import routing as ass
 
 
-path = ass.dijkstra_5_14(graph, "u")
+path = ass.dijkstra_generalized(graph,"u", plus=True)
 pprint(path)
 
-pprint(nx.dijkstra_predecessor_and_distance(graph, "u", None, "cost"))
+
 
 
 #pprint(ass.forwarding(path[0]))
