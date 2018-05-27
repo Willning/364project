@@ -34,6 +34,14 @@ for node in graph:
     """
     
     
+
+import routing as ass
+import operator
+
+path = ass.dijkstra_generalized(graph,"w",weight = "cost", infinity = 0, plus = min, less= operator.gt, min_=max )
+pprint(path)
+
+
 node_positions = nx.get_node_attributes(graph, name='pos')
 edge_label_positions = nx.draw_networkx_edge_labels(
         graph,
@@ -42,15 +50,6 @@ edge_label_positions = nx.draw_networkx_edge_labels(
         edge_labels=nx.get_edge_attributes(graph, name='cost'))
 nx.draw_networkx(graph, pos=node_positions)
 
-import routing as ass
 
-
-path = ass.dijkstra_generalized(graph,"u", plus=True)
-pprint(path)
-
-
-
-
-#pprint(ass.forwarding(path[0]))
 
 
